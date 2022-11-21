@@ -1,6 +1,13 @@
 const stoneBtn = document.querySelector("#stone")
 const scissorsBtn = document.querySelector("#scissors")
 const paperBtn = document.querySelector("#paper")
+let playerScoreBoard = document.querySelector("#player-score")
+let computerScoreBoard = document.querySelector("#computer-score")
+
+computerScore = 0
+playerScore = 0
+
+
 
 const playerBoard = document.querySelector("#playerBoard")
 const computerBoard = document.querySelector("#computerBoard")
@@ -22,14 +29,25 @@ pressedBtn.forEach(element => element.addEventListener("click", () => {
         winner.innerHTML = `<h4>Player won!</h4>`
         winner.style.color = "green"
         winner.style.borderBottom = "2px solid green"
+        ++playerScore
+        playerScoreBoard.innerHTML = ""
+        playerScoreBoard.innerHTML = playerScore
+
     } else if (element.id == "paper" && computer == "stone"){
         winner.innerHTML = `<h4>Player won!</h4>`
         winner.style.color = "green"
         winner.style.borderBottom = "2px solid green"
+        ++playerScore
+        playerScoreBoard.innerHTML = ""
+        playerScoreBoard.innerHTML = playerScore
     } else if (element.id == "scissors" && computer == "paper"){
         winner.innerHTML = `<h4>Player won!</h4>`
         winner.style.color = "green"
         winner.style.borderBottom = "2px solid green"
+        ++playerScore
+        playerScoreBoard.innerHTML = ""
+        playerScoreBoard.innerHTML = playerScore
+
     } else if (element.id == computer) {
         winner.innerHTML = `<h4>Draw!</h4>`
         winner.style.color = "orange"
@@ -38,7 +56,12 @@ pressedBtn.forEach(element => element.addEventListener("click", () => {
          winner.innerHTML = `<h4>Computer won!</h4>`
          winner.style.color = "red"
          winner.style.borderBottom = "2px solid red"
+         ++computerScore
+         computerScoreBoard.innerHTML = ""
+         computerScoreBoard.innerHTML =  computerScore
     }
+
+    
 
     function computerPlay (){
         computerTurn = Math.floor(Math.random() * 3 + 1) 
